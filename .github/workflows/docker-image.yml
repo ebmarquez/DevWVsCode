@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: environment setup
       env:
-        VERSION: $(date +%s)
+        VERSION: $(date +%s) 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag devwvscode:$VERSION      
+      run: docker build . --file Dockerfile --tag devwvscode:${VERSION}      
     - name: Docker tag as latest
-      run: docker tag devwvscode:$VERSION devwvscode:latest
+      run: docker tag devwvscode:${VERSION} devwvscode:latest
