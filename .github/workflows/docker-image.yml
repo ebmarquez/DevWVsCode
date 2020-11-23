@@ -10,13 +10,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      VERSION: (date +%s)
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: |
-        VERSION=$(date +%s)
-        docker build . --file Dockerfile --tag devwvscode:latest
+    - name: Build the Docker image devwvscode:${VERSION}
+      run: docker build . --file Dockerfile --tag devwvscode:${VERSION}
       shell: bash
-    - name: run image
-      run: docker run devwvscode:latest
+    - name: run image ${VERSION}
+      run: docker run devwvscode:${VERSION}
