@@ -16,4 +16,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag devwvscode:$(date +%s)
+    - name: Docker tag as latest
       run: docker tag devwvscode:$(date +%s) devwvscode:latest
