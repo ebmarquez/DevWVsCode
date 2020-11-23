@@ -1,7 +1,4 @@
 name: Docker Image CI
-
-env:
-  version: $(date +%s)
 on:
   push:
     branches: [ main ]
@@ -16,7 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: environment setup
+      env:
+        VERSION: $(date +%s)
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag devwvscode:$version
+      run: docker build . --file Dockerfile --tag devwvscode:$VERSION      
     - name: Docker tag as latest
-      run: docker tag devwvscode:$version devwvscode:latest
+      run: docker tag devwvscode:$VERSION devwvscode:latest
