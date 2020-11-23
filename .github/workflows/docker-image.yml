@@ -1,5 +1,7 @@
 name: Docker Image CI
 
+env:
+  version: $(date +%s)
 on:
   push:
     branches: [ main ]
@@ -15,6 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag devwvscode:$(date +%s)
+      run: docker build . --file Dockerfile --tag devwvscode:$(version)
     - name: Docker tag as latest
-      run: docker tag devwvscode:$(date +%s) devwvscode:latest
+      run: docker tag devwvscode:$(version) devwvscode:latest
