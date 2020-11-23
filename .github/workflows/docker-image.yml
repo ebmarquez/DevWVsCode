@@ -14,8 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: environment setup
-      env:
-        VERSION: $(date +%s) 
+      run: export VERSION=$(date +%s)
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag devwvscode:${VERSION}      
     - name: Docker tag as latest
