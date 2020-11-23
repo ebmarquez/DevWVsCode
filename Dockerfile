@@ -16,7 +16,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # depencency on it.
 ENV PATH="${VIRTUAL_ENV}/bin:${PATH}" \
     DEBIAN_FRONTEND=dialog \
-    # Version numbers of required software
     PWSH_YAML=0.4.2 \
     ANSIBLE=2.10.0 \
     JINJA=2.11.2 \
