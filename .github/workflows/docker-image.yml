@@ -16,7 +16,7 @@ jobs:
     - name: Build the Docker image
       run: |
         VERSION=$(date +%s)
-        docker build . --file Dockerfile --tag devwvscode:${VERSION}
+        docker build . --file Dockerfile --tag devwvscode:latest
       shell: bash
     - name: run image
-      run: docker run devwvscode:${VERSION}
+      run: docker run devwvscode:latest
