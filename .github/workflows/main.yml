@@ -15,6 +15,11 @@ jobs:
       run: |
         export VERSION=`date +"%y%m.%d.%H%M"`
         echo $VERSION >>$GITHUB_ENV
+    - name: test version
+      run: |
+        echo "VERSION: $VERSION"
+        echo "VERSION: $env.VERSION"
+
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
