@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: setup version variable
-      shell: bash
-      run: |
-        echo $GITHUB_ENV
-      #export VERSION=`date +"%y%m.%d.%H%M"`
-      #echo $VERSION >>$GITHUB_ENV
+    # - name: setup version variable
+    #   shell: bash
+    #   run: |
+    #     echo $GITHUB_ENV
+    #   #export VERSION=`date +"%y%m.%d.%H%M"`
+    #   #echo $VERSION >>$GITHUB_ENV
     - name: test version
       run: |
         echo "VERSION: $VERSION"
