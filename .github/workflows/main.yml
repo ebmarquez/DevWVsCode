@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Test env
+      run: echo ${{ env.GITHUB_RUN_NUMBER}}
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
