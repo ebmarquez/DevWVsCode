@@ -4,9 +4,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@master
     - name: Publish to Docker Hub Registry
-      uses: elgohr/Publish-Docker-Github-Action@main
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: ebmarquez/vscode-dev
         username: ${{ secrets.DOCKER_USERNAME }}
