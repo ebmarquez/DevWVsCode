@@ -12,7 +12,6 @@ jobs:
     steps:
     - run: VERSION=`date +"%y%m.%d.%H%M"` >> $GITHUB_ENV
     - run: echo "1  ${{ env.VERSION }}"
-    - run: echo "2  ${{ VERSION }}"
     - uses: actions/checkout@master
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
