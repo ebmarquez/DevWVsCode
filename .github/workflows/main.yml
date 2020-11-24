@@ -15,12 +15,15 @@ jobs:
       shell: bash
       run: |
         echo $GITHUB_ENV
-        export VERSION=`date +"%y%m.%d.%H%M"`
-        echo $VERSION >>$GITHUB_ENV
+      #export VERSION=`date +"%y%m.%d.%H%M"`
+      #echo $VERSION >>$GITHUB_ENV
     - name: test version
       run: |
         echo "VERSION: $VERSION"
         echo "VERSION: $env.VERSION"
+        echo ${{ GITHUB_ENV }}
+        echo $GITHUB_ENV
+        echo $env
 
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
@@ -29,4 +32,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tag_semver: true
-        tags: latest, ${{env.VERSION}}
+        tags: latest
