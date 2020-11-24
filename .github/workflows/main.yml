@@ -18,4 +18,11 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tag_semver: true
-        tags: latest, v1.0
+        tags: latest
+    - name: Publish to Docker Hub Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: ebmarquez/vscode-dev
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        snapshot: true
