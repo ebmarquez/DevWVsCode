@@ -6,11 +6,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Test env
-      run: echo ${{GITHUB_RUN_NUMBER}}
+      run: echo ${GITHUB_RUN_NUMBER}
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: ebmarquez/vscode-dev
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: "latest,${{ env.GITHUB_RUN_NUMBER}}"
+        tags: "latest,${{GITHUB_RUN_NUMBER}}"
