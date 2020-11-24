@@ -18,7 +18,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         tag_semver: true
-        tags: |
-          latest
-          v1.0
-          v2.0
+        tags: "latest, v1.0"
