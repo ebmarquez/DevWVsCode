@@ -11,20 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    # - name: setup version variable
-    #   shell: bash
-    #   run: |
-    #     echo $GITHUB_ENV
-    #   #export VERSION=`date +"%y%m.%d.%H%M"`
-    #   #echo $VERSION >>$GITHUB_ENV
+    - name: setup version variable
+      shell: bash
+      run: export VERSION=`test`
     - name: test version
+      shell: bash
       run: |
         echo "VERSION: $VERSION"
         echo "VERSION: $env.VERSION"
-        echo ${{ GITHUB_ENV }}
-        echo $GITHUB_ENV
-        echo $env
-
+      #  echo ${{ GITHUB_ENV }}
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
