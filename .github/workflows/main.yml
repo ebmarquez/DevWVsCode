@@ -5,8 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Test env
-    - run: echo $GITHUB_RUN_NUMBER
-    - run: echo $secrets.DOCKER_USERNAME
+      run: echo $GITHUB_RUN_NUMBER
+    - name: test2
+      run: echo $secrets.DOCKER_USERNAME
     - uses: actions/checkout@master
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
