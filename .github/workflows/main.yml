@@ -14,7 +14,7 @@ jobs:
     - name: Publish to Docker Hub Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       run: |
-        VERSION=`date +"%y%m.%d.%H%M"`
+        export VERSION=`date +"%y%m.%d.%H%M"`
         echo $VERSION >>$GITHUB_ENV
       with:
         name: ebmarquez/vscode-dev
