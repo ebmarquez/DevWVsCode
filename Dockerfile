@@ -59,7 +59,8 @@ RUN /usr/bin/pwsh -Command 'Install-Module powershell-yaml -MaximumVersion ${PWS
     # personal tools vscode environment
     && mkdir -p $WORKDIR/repo $WORKDIR/results $WORKDIR/root/ $WORKDIR/bin $WORKDIR/.vscode
 
-RUN pwsh -Command 'get-module -listavailable' > $WORKDIR/inventory.txt \
+RUN date >> $WORKDIR/inventory.txt \
+    && pwsh -Command 'get-module -listavailable' > $WORKDIR/inventory.txt \
     && pip list >> $WORKDIR/inventory.txt
 
 CMD cat $WORKDIR/inventory.txt
