@@ -1,0 +1,25 @@
+name: Refresh image every month
+on:
+  schedule:
+  # first day of the month at 2:00 AM.
+    - cron: '0 2 1 * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Docker Hub Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: ebmarquez/vscode-dev
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        tag_semver: true
+        tags: latest
+    - name: Publish to Docker Hub Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: ebmarquez/vscode-dev
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        snapshot: true
