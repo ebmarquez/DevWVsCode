@@ -49,9 +49,10 @@ RUN apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev li
     && apt-get autoremove -y
 
 RUN apt-get update \
-    && pip3.9 install virtualenv \
-    && python3.9 -m virtualenv --python=/usr/local/bin/python3.9 $VIRTUAL_ENV \
-    && pip3.9 install \
+    && /usr/local/bin/python3.9 -m pip install --upgrade pip \
+    && /usr/local/bin/pip3.9 install virtualenv \
+    && /usr/local/bin/python3.9 -m virtualenv --python=/usr/local/bin/python3.9 $VIRTUAL_ENV \
+    && /usr/local/bin/pip3.9 install \
     ansible==$ANSIBLE \
     jinja2==$JINJA \
     cffi==$CFFI \
