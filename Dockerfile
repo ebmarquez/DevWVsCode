@@ -17,7 +17,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # VIRTUAL_ENV split into a seperate ENV call is ensure it's placed into memory before making a 
 # depencency on it.
 ENV DEBIAN_FRONTEND=dialog \
-    PWSH_YAML_VER=0.4.2 \
     ANSIBLE=2.10.0 \
     JINJA=2.11.2 \
     CFFI=1.14.3 \
@@ -36,7 +35,7 @@ RUN apt-get update \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-${DEBIAN_VERSION}-prod ${DEBIAN_VERSION} main" > /etc/apt/sources.list.d/microsoft.list \
     && apt-get update \
-    && apt-get install -y --no-install-recommends software-properties-common powershell=7.1.0-1.debian.10
+    && apt-get install -y --no-install-recommends software-properties-common powershell
 
 # Install the python virt env.
 RUN apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev wget \
@@ -69,7 +68,7 @@ RUN apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Powershell Installer
-RUN /usr/bin/pwsh -Command 'Install-Module powershell-yaml -MaximumVersion 0.4.2 -Scope AllUsers -Force -ErrorAction Stop' \
+RUN /usr/bin/pwsh -Command 'Install-Module powershell-yaml -Scope AllUsers -Force -ErrorAction Stop' \
     # vscode permissions
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
