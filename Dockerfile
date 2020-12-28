@@ -78,7 +78,8 @@ RUN /usr/bin/pwsh -Command 'Install-Module powershell-yaml -Scope AllUsers -Forc
     && mkdir -p $WORKDIR/repo $WORKDIR/results $WORKDIR/root $WORKDIR/bin $WORKDIR/.vscode
 
 RUN date >> $WORKDIR/inventory.txt \
-    && /usr/bin/pwsh -Command 'get-module -listavailable' > $WORKDIR/inventory.txt \
+    && /usr/bin/pwsh -Command '$PSVersionTable' > $WORKDIR/inventory.txt \
+    && /usr/bin/pwsh -Command 'get-module -listavailable' >> $WORKDIR/inventory.txt \
     && pip3.9 list >> $WORKDIR/inventory.txt
 
 CMD cat $WORKDIR/inventory.txt
