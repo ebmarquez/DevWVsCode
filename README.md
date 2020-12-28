@@ -1,9 +1,25 @@
 # DevWVsCode
 This will create a dev environment with a docker images that contains both PowerShell and ansible.  This will work with VSCode.
 
+## PowerShell Version
+```
+Name                           Value
+----                           -----
+PSVersion                      7.1.0
+PSEdition                      Core
+GitCommitId                    7.1.0
+OS                             Linux 5.4.0-1032-azure #33~18.04.1-Ubuntu SMP T…
+Platform                       Unix
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+```
+
 ## PowerShell Modules
 
 ```
+
     Directory: /usr/local/share/powershell/Modules
 
 ModuleType Version    PreRelease Name                                PSEdition
@@ -30,6 +46,7 @@ Binary     2.0.3                 ThreadJob                           Desk
 ## Python3 Packages
 
 ```
+
 Package      Version
 ------------ -------
 ansible      2.10.0
@@ -45,7 +62,7 @@ MarkupSafe   1.1.1
 netaddr      0.7.19
 packaging    20.8
 paramiko     2.7.1
-pip          20.2.3
+pip          20.3.3
 pycparser    2.20
 PyNaCl       1.4.0
 pyparsing    2.4.7
