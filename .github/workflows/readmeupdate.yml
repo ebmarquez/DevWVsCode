@@ -24,9 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: Scrum/awesome-readme-to-data-action@v0.1.4
-
       # Runs a single command using the runners shell
-      - name: Readme data
+        name: Readme data
         with:
           entry: ./README.md
           output: ./dataset.json
