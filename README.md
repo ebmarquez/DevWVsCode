@@ -1,11 +1,12 @@
 ## PowerShell
 
+
 ```
 Name                           Value
 ----                           -----
-PSVersion                      7.1.1
+PSVersion                      7.1.2
 PSEdition                      Core
-GitCommitId                    7.1.1
+GitCommitId                    7.1.2
 OS                             Linux 5.4.0-1036-azure #38~18.04.1-Ubuntu SMP W…
 Platform                       Unix
 PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
