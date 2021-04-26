@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 
 # VSCODE ARGS
@@ -17,17 +17,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # VIRTUAL_ENV split into a seperate ENV call is ensure it's placed into memory before making a 
 # depencency on it.
 ENV DEBIAN_FRONTEND=dialog \
-    ANSIBLE=2.10.0 \
-    JINJA=2.11.2 \
-    CFFI=1.14.3 \
-    CRYPTGRAPH=3.2 \
-    MARKUP_SAFE=1.1.1 \
-    NETADDR=0.7.19 \
-    PKG_RESOURCES=0.0.0 \
-    PYCPARSER=2.20 \
-    PYYAML=5.3.1 \
-    SIX=1.14.0 \
-    PARAMIKO=2.7.1
+    ANSIBLE=3.0.0
 
 RUN apt-get update \
     && apt-get install -y sudo gnupg \
@@ -38,7 +28,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends software-properties-common powershell
 
 # Install the python virt env.
-RUN apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev wget \
+RUN apt-get install -y sshpass build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev wget \
     && wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tar.xz \
     && tar Jxf Python-3.9.0.tar.xz \
     && (cd Python-3.9.0; ./configure; make altinstall) \
@@ -53,15 +43,15 @@ RUN apt-get update \
     && /usr/local/bin/python3.9 -m virtualenv --python=/usr/local/bin/python3.9 $VIRTUAL_ENV \
     && /usr/local/bin/pip3.9 install \
     ansible==$ANSIBLE \
-    jinja2==$JINJA \
-    cffi==$CFFI \
-    cryptography==$CRYPTGRAPH \
-    MarkupSafe==$MARKUP_SAFE \
-    netaddr==$NETADDR \
-    pycparser==$PYCPARSER \
-    PyYAML==$PYYAML \
-    six==$SIX \
-    paramiko==$PARAMIKO
+    jinja2 \
+    cffi \
+    cryptography \
+    MarkupSafe \
+    netaddr \
+    pycparser \
+    PyYAML \
+    six \
+    paramiko
 
 # Clean up apt caches
 RUN apt-get autoremove -y \
