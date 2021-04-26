@@ -1,13 +1,12 @@
-## PowerShell
+## Powershell
 
-
-```
+```powershell
 Name                           Value
 ----                           -----
-PSVersion                      7.1.2
+PSVersion                      7.1.3
 PSEdition                      Core
-GitCommitId                    7.1.2
-OS                             Linux 5.4.0-1036-azure #38~18.04.1-Ubuntu SMP W…
+GitCommitId                    7.1.3
+OS                             Linux 5.4.72-microsoft-standard-WSL2 #1 SMP Wed…
 Platform                       Unix
 PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
 PSRemotingProtocolVersion      2.3
@@ -15,9 +14,9 @@ SerializationVersion           1.1.0.1
 WSManStackVersion              3.0
 ```
 
+## Powershell Modules
 
-## PowerShell Modules
-```
+```powershell
     Directory: /usr/local/share/powershell/Modules
 
 ModuleType Version    PreRelease Name                                PSEdition
@@ -38,32 +37,32 @@ Script     2.2.5                 PowerShellGet                       Desk
 Script     2.0.5                 PSDesiredStateConfiguration         Core
 Script     2.1.0                 PSReadLine                          Desk
 Binary     2.0.3                 ThreadJob                           Desk
-````
-
-## Python
 ```
 
+## Python 
+
+```python
 Package      Version
 ------------ -------
-ansible      2.10.0
-ansible-base 2.10.5
+ansible      3.0.0
+ansible-base 2.10.8
 appdirs      1.4.4
 bcrypt       3.2.0
-cffi         1.14.3
-cryptography 3.2
+cffi         1.14.5
+cryptography 3.4.7
 distlib      0.3.1
 filelock     3.0.12
-Jinja2       2.11.2
+Jinja2       2.11.3
 MarkupSafe   1.1.1
-netaddr      0.7.19
+netaddr      0.8.0
 packaging    20.9
-paramiko     2.7.1
-pip          21.0.1
+paramiko     2.7.2
+pip          21.1
 pycparser    2.20
 PyNaCl       1.4.0
 pyparsing    2.4.7
-PyYAML       5.3.1
+PyYAML       5.4.1
 setuptools   49.2.1
-six          1.14.0
-virtualenv   20.4.0
+six          1.15.0
+virtualenv   20.4.4
 ```
