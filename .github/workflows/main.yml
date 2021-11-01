@@ -1,11 +1,6 @@
 name: Publish Docker
 on:
-  push:
-    branches:
-      - main
-  schedule:
-  # first day of the month at 2:00 AM.
-    - cron: '0 2 1 * *'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
