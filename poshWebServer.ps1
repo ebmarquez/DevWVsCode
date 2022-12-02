@@ -5,8 +5,9 @@ $port = 8080
 $UrlPrefix = (hostname -i)
 $listener = New-Object System.Net.HttpListener
 
-Write-Host ("Adding URI to the listener http://{0}:{1}{2}" -f $UrlPrefix, $port, $health)
-$listener.Prefixes.Add(("http://{0}:{1}{2}" -f $UrlPrefix, $port, ($health + '/') ))
+# using the Plus will make the listening port agnostic when running in a linux container.
+Write-Host ("Adding URI to the listener http://+:{1}{2}" -f $UrlPrefix, $port, $health)
+$listener.Prefixes.Add(("http://+:{1}{2}" -f $UrlPrefix, $port, ($health + '/') ))
 Write-Host ("Starting WebService Listener")
 $listener.Start()
 Write-Host ("Webserver is listening: [{0}]" -f $listener.IsListening)
